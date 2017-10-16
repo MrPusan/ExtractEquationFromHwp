@@ -1,0 +1,17 @@
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractEquationFrHwp.exe.config
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractEquationFrHwp.exe
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractEquationFrHwp.pdb
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractingEquation.dll
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractingEquation.pdb
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.csprojResolveAssemblyReference.cache
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.Form1.resources
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.Properties.Resources.resources
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.csproj.GenerateResource.Cache
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.csproj.CoreCompileInputs.cache
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.exe
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.pdb
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Interop.HWPCONTROLLib.dll
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\AxInterop.HWPCONTROLLib.dll
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\Interop.HWPCONTROLLib.dll
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\AxInterop.HWPCONTROLLib.dll
+D:\GitHub\First\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.csproj.ResolveComReference.cache
