@@ -29,47 +29,36 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.orginalText = new System.Windows.Forms.RichTextBox();
+			this.originalText = new System.Windows.Forms.RichTextBox();
 			this.extractedText = new System.Windows.Forms.RichTextBox();
-			this.extractButton = new System.Windows.Forms.Button();
 			this.clearButton = new System.Windows.Forms.Button();
 			this.axHwpText = new AxHWPCONTROLLib.AxHwpCtrl();
-			this.fromHML = new System.Windows.Forms.Button();
+			this.extractEquation = new System.Windows.Forms.Button();
 			this.ExtTextAndEq = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.axHwpText)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// orginalText
+			// originalText
 			// 
-			this.orginalText.Location = new System.Drawing.Point(12, 246);
-			this.orginalText.Name = "orginalText";
-			this.orginalText.Size = new System.Drawing.Size(612, 243);
-			this.orginalText.TabIndex = 0;
-			this.orginalText.Text = "";
+			this.originalText.Location = new System.Drawing.Point(12, 246);
+			this.originalText.Name = "originalText";
+			this.originalText.Size = new System.Drawing.Size(529, 243);
+			this.originalText.TabIndex = 0;
+			this.originalText.Text = "";
 			// 
 			// extractedText
 			// 
-			this.extractedText.Location = new System.Drawing.Point(630, 12);
+			this.extractedText.Location = new System.Drawing.Point(547, 12);
 			this.extractedText.Name = "extractedText";
-			this.extractedText.Size = new System.Drawing.Size(345, 391);
+			this.extractedText.Size = new System.Drawing.Size(428, 391);
 			this.extractedText.TabIndex = 1;
 			this.extractedText.Text = "";
 			// 
-			// extractButton
-			// 
-			this.extractButton.Location = new System.Drawing.Point(875, 408);
-			this.extractButton.Name = "extractButton";
-			this.extractButton.Size = new System.Drawing.Size(100, 38);
-			this.extractButton.TabIndex = 2;
-			this.extractButton.Text = "Extract From HML";
-			this.extractButton.UseVisualStyleBackColor = true;
-			this.extractButton.Click += new System.EventHandler(this.extractButton_Click);
-			// 
 			// clearButton
 			// 
-			this.clearButton.Location = new System.Drawing.Point(875, 452);
+			this.clearButton.Location = new System.Drawing.Point(853, 409);
 			this.clearButton.Name = "clearButton";
-			this.clearButton.Size = new System.Drawing.Size(99, 36);
+			this.clearButton.Size = new System.Drawing.Size(121, 80);
 			this.clearButton.TabIndex = 3;
 			this.clearButton.Text = "Clear";
 			this.clearButton.UseVisualStyleBackColor = true;
@@ -81,24 +70,24 @@
 			this.axHwpText.Location = new System.Drawing.Point(11, 12);
 			this.axHwpText.Name = "axHwpText";
 			this.axHwpText.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axHwpText.OcxState")));
-			this.axHwpText.Size = new System.Drawing.Size(613, 228);
+			this.axHwpText.Size = new System.Drawing.Size(530, 228);
 			this.axHwpText.TabIndex = 4;
 			// 
-			// fromHML
+			// extractEquation
 			// 
-			this.fromHML.Location = new System.Drawing.Point(630, 409);
-			this.fromHML.Name = "fromHML";
-			this.fromHML.Size = new System.Drawing.Size(239, 38);
-			this.fromHML.TabIndex = 5;
-			this.fromHML.Text = "Extract Equation only From HWP";
-			this.fromHML.UseVisualStyleBackColor = true;
-			this.fromHML.Click += new System.EventHandler(this.fromHML_Click);
+			this.extractEquation.Location = new System.Drawing.Point(547, 409);
+			this.extractEquation.Name = "extractEquation";
+			this.extractEquation.Size = new System.Drawing.Size(300, 38);
+			this.extractEquation.TabIndex = 5;
+			this.extractEquation.Text = "Extract Equation only From HWP";
+			this.extractEquation.UseVisualStyleBackColor = true;
+			this.extractEquation.Click += new System.EventHandler(this.extractEquation_Click);
 			// 
 			// ExtTextAndEq
 			// 
-			this.ExtTextAndEq.Location = new System.Drawing.Point(630, 450);
+			this.ExtTextAndEq.Location = new System.Drawing.Point(547, 451);
 			this.ExtTextAndEq.Name = "ExtTextAndEq";
-			this.ExtTextAndEq.Size = new System.Drawing.Size(239, 38);
+			this.ExtTextAndEq.Size = new System.Drawing.Size(300, 38);
 			this.ExtTextAndEq.TabIndex = 6;
 			this.ExtTextAndEq.Text = "Extract Text And Equation From HWP";
 			this.ExtTextAndEq.UseVisualStyleBackColor = true;
@@ -110,12 +99,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(987, 509);
 			this.Controls.Add(this.ExtTextAndEq);
-			this.Controls.Add(this.fromHML);
+			this.Controls.Add(this.extractEquation);
 			this.Controls.Add(this.axHwpText);
 			this.Controls.Add(this.clearButton);
-			this.Controls.Add(this.extractButton);
 			this.Controls.Add(this.extractedText);
-			this.Controls.Add(this.orginalText);
+			this.Controls.Add(this.originalText);
 			this.Name = "Form1";
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
@@ -126,12 +114,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.RichTextBox orginalText;
+		private System.Windows.Forms.RichTextBox originalText;
 		private System.Windows.Forms.RichTextBox extractedText;
-		private System.Windows.Forms.Button extractButton;
 		private System.Windows.Forms.Button clearButton;
 		private AxHWPCONTROLLib.AxHwpCtrl axHwpText;
-		private System.Windows.Forms.Button fromHML;
+		private System.Windows.Forms.Button extractEquation;
 		private System.Windows.Forms.Button ExtTextAndEq;
 	}
 }

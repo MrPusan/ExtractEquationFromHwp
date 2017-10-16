@@ -9,7 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
+//HWP Equation Extraction lib
 using ExtractingEquation;
+//ironpython Lib
+using IronPython.Hosting;
+using IronPython.Runtime;
+using Microsoft.Scripting;
+using Microsoft.Scripting.Hosting;
 
 
 namespace ExtractEquationFrHwp
@@ -20,7 +26,65 @@ namespace ExtractEquationFrHwp
 		{
 			InitializeComponent();
 		}
+		
 
+		/// <summary>
+		/// Remove unuseful delimeters in Equation
+		/// </summary>
+		/// <param name="rawEqation"></param>
+		/// <returns></returns>
+		private string removingDelimeterOfEq(string rawEqation)
+		{
+			string resultEquation = "";
+
+			string getAppPath = System.IO.Directory.GetCurrentDirectory();
+			int index1;
+			index1 = getAppPath.IndexOf("ExtractEquationFrHwp");
+			int pathLength = getAppPath.Length;
+			string Lpath;
+			if (index1 > 0)
+			{
+				Lpath = getAppPath.Remove(index1, pathLength - index1);
+			}
+			else
+			{
+				Lpath = getAppPath;
+			}
+			string filePath = Lpath + "ExtractEquationFrHwp\\Delimeters4Equation.py";
+
+			ScriptEngine engine = Python.CreateEngine();
+			ScriptSource source = engine.CreateScriptSourceFromFile(filePath);
+			ScriptScope scope = engine.CreateScope();
+
+			ObjectOperations op = engine.Operations;
+
+			source.Execute(scope); // class object created
+			object classObject = scope.GetVariable("Delimiters4Equation"); // get the class object
+			object instance = op.Invoke(classObject); // create the instance
+			object method = op.GetMember(instance, "getDelimeters"); // get a method
+
+			List<string> result = ((IList<object>)op.Invoke(method)).Cast<string>().ToList();
+			
+			string tempText = rawEqation;
+
+			for (int i = 0; i < result.Count; i++)
+			{
+				
+				tempText = tempText.Replace(result[i], "");
+				//MessageBox.Show(tempText);
+			}
+
+			resultEquation = tempText;
+
+			return resultEquation;
+		}
+
+
+		/// <summary>
+		/// Initailize HWP Control
+		/// </summary>
+		/// <param name="Ax"></param>
+		/// <param name="sUse"></param>
 		private void AxHwpPageSetup(AxHWPCONTROLLib.AxHwpCtrl Ax, int sUse)
 		{
 			HWPCONTROLLib.HwpAction act = (HWPCONTROLLib.HwpAction)Ax.CreateAction("PageSetup");
@@ -85,6 +149,11 @@ namespace ExtractEquationFrHwp
 
 		}
 
+
+		/// <summary>
+		/// Convert HWP string to HML string
+		/// </summary>
+		/// <returns></returns>
 		private string ConvertHwp2Hml()
 		{
 			
@@ -104,41 +173,34 @@ namespace ExtractEquationFrHwp
 			return myText;
 		}
 
-		private void extractButton_Click(object sender, EventArgs e)
-		{
-			string inText = orginalText.Text;
-			List<string> eqList = ExtractEq.ExEquation(inText);
-			string outText = "";
-			
-			if (eqList != null)
-			{
-				for (int i = 0; i < eqList.Count; i++)
-				{
-					outText = outText + eqList[i] + "\n";
-				}
-			}
-			else
-			{
-				outText = "추출된 데이터가 없습니다..";
-			}
 
-			extractedText.Text = outText;
-		}
-
+		/// <summary>
+		/// Clear Textbox
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void clearButton_Click(object sender, EventArgs e)
 		{
-			orginalText.Clear();
+			originalText.Clear();
 			extractedText.Clear();
 		}
 
-		private void fromHML_Click(object sender, EventArgs e)
+
+		/// <summary>
+		/// Extracting Equation only from HML
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void extractEquation_Click(object sender, EventArgs e)
 		{
 			string myText = ConvertHwp2Hml();
 
-			orginalText.Text = myText;
+			//originalText.Text = myText;
 
-			List<string> eqList = ExtractEq.ExEquation(myText);
+			List<string> eqList = ExtractEq.ExtractEquation(myText);
+
 			string outText = "";
+			string inText = "";
 
 			if (eqList == null || eqList.Count<=0)
 			{
@@ -148,42 +210,76 @@ namespace ExtractEquationFrHwp
 			{
 				for (int i = 0; i < eqList.Count; i++)
 				{
-					outText = outText + eqList[i] + "\n";
+					inText = inText + eqList[i] + "\n";
+
+					//Remove unuseful delimeters
+					outText = outText + removingDelimeterOfEq(eqList[i]) + "\n";
 				}
 			}
-
+			originalText.Text = inText;
 			extractedText.Text = outText;
 
 		}
 
+
+		/// <summary>
+		/// Extracting Equation in first and foloowed TEXT from HML
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ExtTextAndEq_Click(object sender, EventArgs e)
 		{
 			string myText = ConvertHwp2Hml();
 
-			orginalText.Text = myText;
-
-			List<string> eqList = ExtractEq.GetTextAndEquation(myText);
+			
+			// Extracting EQUATION
+			List<string> myListEq = ExtractEq.ExtractEquation(myText);
+			
 			string outText = "";
-
-			if (eqList == null || eqList.Count <= 0)
+			string inText = "";
+			if (myListEq == null || myListEq.Count <= 0)
 			{
 				outText = "추출된 수식이 없습니다..";
 			}
 			else
 			{
-				for (int i = 0; i < eqList.Count; i++)
+				for (int i = 0; i < myListEq.Count; i++)
 				{
-					string tempText = eqList[i];
-					//MessageBox.Show(tempText);
-					string tempText1 = tempText.Replace("`", "");	//<<<python과 연계 "it","~"
-					tempText1 = tempText1.Replace("rm", "");
-					outText = outText + tempText1 + "\n";
+					inText = inText + myListEq[i];
+
+					//Remove unuseful delimeters
+					outText = outText + removingDelimeterOfEq(myListEq[i]) + "\n";
+
 				}
 			}
 
+			// Extracting TEXT
+			List<string> myListText = ExtractEq.ExtractText(myText);
+			
+			if (myListText == null || myListText.Count <= 0)
+			{
+				outText = outText + "====추출된 TEXT가 없습니다..=====";
+			}
+			else
+			{
+				for (int i = 0; i < myListText.Count; i++)
+				{
+					inText = inText + myListText[i];
+					outText = outText + myListText[i] + "\n";
+
+				}
+			}
+
+			originalText.Text = inText;
 			extractedText.Text = outText;
 		}
 
+
+		/// <summary>
+		/// Form Load
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			AxHwpPageSetup(axHwpText, 1);

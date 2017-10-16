@@ -4,3 +4,8 @@ D:\GitHub\First\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEq
 D:\GitHub\First\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.dll
 D:\GitHub\First\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.pdb
 D:\GitHub\First\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.csprojResolveAssemblyReference.cache
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\ExtractingEquation.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\ExtractingEquation.pdb
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.csproj.CoreCompileInputs.cache
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.pdb
