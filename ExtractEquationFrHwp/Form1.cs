@@ -177,7 +177,7 @@ namespace ExtractEquationFrHwp
 					//MessageBox.Show(tempText);
 					string tempText1 = tempText.Replace("`", "");	//<<<python과 연계 "it","~"
 					tempText1 = tempText1.Replace("rm", "");
-					outText = outText + tempText1;
+					outText = outText + tempText1 + "\n";
 				}
 			}
 
