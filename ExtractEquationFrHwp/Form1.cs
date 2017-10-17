@@ -11,11 +11,6 @@ using System.Xml;
 using System.Xml.Linq;
 //HWP Equation Extraction lib
 using ExtractingEquation;
-//ironpython Lib
-using IronPython.Hosting;
-using IronPython.Runtime;
-using Microsoft.Scripting;
-using Microsoft.Scripting.Hosting;
 
 
 namespace ExtractEquationFrHwp
@@ -27,58 +22,6 @@ namespace ExtractEquationFrHwp
 			InitializeComponent();
 		}
 		
-
-		/// <summary>
-		/// Remove unuseful delimeters in Equation
-		/// </summary>
-		/// <param name="rawEqation"></param>
-		/// <returns></returns>
-		private string removingDelimeterOfEq(string rawEqation)
-		{
-			string resultEquation = "";
-
-			string getAppPath = System.IO.Directory.GetCurrentDirectory();
-			int index1;
-			index1 = getAppPath.IndexOf("ExtractEquationFrHwp");
-			int pathLength = getAppPath.Length;
-			string Lpath;
-			if (index1 > 0)
-			{
-				Lpath = getAppPath.Remove(index1, pathLength - index1);
-			}
-			else
-			{
-				Lpath = getAppPath;
-			}
-			string filePath = Lpath + "ExtractEquationFrHwp\\Delimeters4Equation.py";
-
-			ScriptEngine engine = Python.CreateEngine();
-			ScriptSource source = engine.CreateScriptSourceFromFile(filePath);
-			ScriptScope scope = engine.CreateScope();
-
-			ObjectOperations op = engine.Operations;
-
-			source.Execute(scope); // class object created
-			object classObject = scope.GetVariable("Delimiters4Equation"); // get the class object
-			object instance = op.Invoke(classObject); // create the instance
-			object method = op.GetMember(instance, "getDelimeters"); // get a method
-
-			List<string> result = ((IList<object>)op.Invoke(method)).Cast<string>().ToList();
-			
-			string tempText = rawEqation;
-
-			for (int i = 0; i < result.Count; i++)
-			{
-				
-				tempText = tempText.Replace(result[i], "");
-				//MessageBox.Show(tempText);
-			}
-
-			resultEquation = tempText;
-
-			return resultEquation;
-		}
-
 
 		/// <summary>
 		/// Initailize HWP Control
@@ -164,7 +107,7 @@ namespace ExtractEquationFrHwp
 			axHwpText.Run("MoveDocBegin");
 
 			var eucKrEncoding = Encoding.GetEncoding("euc-kr");
-			var utf8Encoding = Encoding.UTF8;
+			//var utf8Encoding = Encoding.UTF8;
 
 			string eucKrString = eucKrEncoding.GetString(eucKrEncoding.GetBytes(quest.ToString()));
 			//var resultOfUtf8Bytes = utf8Encoding.GetBytes(eucKrString);
@@ -213,7 +156,7 @@ namespace ExtractEquationFrHwp
 					inText = inText + eqList[i] + "\n";
 
 					//Remove unuseful delimeters
-					outText = outText + removingDelimeterOfEq(eqList[i]) + "\n";
+					outText = outText + ExtractEq.removingDelimeterOfEq(eqList[i]) + "\n";
 				}
 			}
 			originalText.Text = inText;
@@ -248,7 +191,7 @@ namespace ExtractEquationFrHwp
 					inText = inText + myListEq[i];
 
 					//Remove unuseful delimeters
-					outText = outText + removingDelimeterOfEq(myListEq[i]) + "\n";
+					outText = outText + ExtractEq.removingDelimeterOfEq(myListEq[i]) + "\n";
 
 				}
 			}

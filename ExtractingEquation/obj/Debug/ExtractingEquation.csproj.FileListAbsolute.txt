@@ -9,3 +9,14 @@ D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\ExtractingEquation
 D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.csproj.CoreCompileInputs.cache
 D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.pdb
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\IronPython.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\IronPython.Modules.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Dynamic.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Scripting.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Scripting.Metadata.dll
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\IronPython.xml
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\IronPython.Modules.xml
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Dynamic.xml
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Scripting.xml
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\bin\Debug\Microsoft.Scripting.Metadata.xml
+D:\GitHub\ExtractEquationFromHwp\ExtractingEquation\obj\Debug\ExtractingEquation.csprojResolveAssemblyReference.cache

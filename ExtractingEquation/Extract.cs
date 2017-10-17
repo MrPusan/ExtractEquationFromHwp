@@ -8,6 +8,11 @@ using System.Xml.Linq;
 using System.Windows;
 using System.Drawing;
 using System.Windows.Forms;
+//ironpython Lib
+using IronPython.Hosting;
+using IronPython.Runtime;
+using Microsoft.Scripting;
+using Microsoft.Scripting.Hosting;
 
 namespace ExtractingEquation
 {
@@ -111,5 +116,56 @@ namespace ExtractingEquation
 			return resultList;
 		}
 
+
+		/// <summary>
+		/// Remove unuseful delimeters in Equation
+		/// </summary>
+		/// <param name="rawEqation"></param>
+		/// <returns></returns>
+		public static string removingDelimeterOfEq(string rawEqation)
+		{
+			string resultEquation = "";
+
+			string getAppPath = System.IO.Directory.GetCurrentDirectory();
+			int index1;
+			index1 = getAppPath.IndexOf("ExtractEquationFrHwp");
+			int pathLength = getAppPath.Length;
+			string Lpath;
+			if (index1 > 0)
+			{
+				Lpath = getAppPath.Remove(index1, pathLength - index1);
+			}
+			else
+			{
+				Lpath = getAppPath;
+			}
+			string filePath = Lpath + "ExtractEquationFrHwp\\Delimeters4Equation.py";
+
+			ScriptEngine engine = Python.CreateEngine();
+			ScriptSource source = engine.CreateScriptSourceFromFile(filePath);
+			ScriptScope scope = engine.CreateScope();
+
+			ObjectOperations op = engine.Operations;
+
+			source.Execute(scope); // class object created
+			object classObject = scope.GetVariable("Delimiters4Equation"); // get the class object
+			object instance = op.Invoke(classObject); // create the instance
+			object method = op.GetMember(instance, "getDelimeters"); // get a method
+
+			List<string> result = ((IList<object>)op.Invoke(method)).Cast<string>().ToList();
+
+			string tempText = rawEqation;
+
+			for (int i = 0; i < result.Count; i++)
+			{
+
+				tempText = tempText.Replace(result[i], "");
+				//MessageBox.Show(tempText);
+			}
+
+			resultEquation = tempText;
+
+			return resultEquation;
+		}
 	}
 }

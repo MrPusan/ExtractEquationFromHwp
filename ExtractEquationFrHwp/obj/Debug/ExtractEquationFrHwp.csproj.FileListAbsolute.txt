@@ -20,13 +20,11 @@ D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractEquationF
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractEquationFrHwp.pdb
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractingEquation.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\IronPython.dll
-D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\IronPython.Modules.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Dynamic.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Scripting.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Scripting.Metadata.dll
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\ExtractingEquation.pdb
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\IronPython.xml
-D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\IronPython.Modules.xml
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Dynamic.xml
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Scripting.xml
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Microsoft.Scripting.Metadata.xml
@@ -42,3 +40,4 @@ D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationF
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.csproj.CoreCompileInputs.cache
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.exe
 D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\obj\Debug\ExtractEquationFrHwp.pdb
+D:\GitHub\ExtractEquationFromHwp\ExtractEquationFrHwp\bin\Debug\Delimeters4Equation.py
